@@ -10,9 +10,10 @@ connectDB();
 PORT = process.env.PORT
 app.set(cors());
 app.use(express.json());
-// app.get("/", (req, res) => {
-//   res.send("Welcome to Spotify Api with NodeJs");
-// });
+app.use(express.static("client"))
+app.get("/", (req, res) => {
+  res.send("Welcome to Meal Record Api with NodeJs");
+});
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/meal", mealRoutes);
 
